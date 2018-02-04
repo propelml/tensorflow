@@ -1344,21 +1344,21 @@ def main():
   set_windows_build_flags()
   create_android_bazelrc_configs()
 
-  if workspace_has_any_android_rule():
-    print('The WORKSPACE file has at least one of ["android_sdk_repository", '
-          '"android_ndk_repository"] already set. Will not ask to help '
-          'configure the WORKSPACE. Please delete the existing rules to '
-          'activate the helper.\n')
-  else:
-    if get_var(
-        environ_cp, 'TF_SET_ANDROID_WORKSPACE', 'android workspace',
-        False,
-        ('Would you like to interactively configure ./WORKSPACE for '
-         'Android builds?'),
-        'Searching for NDK and SDK installations.',
-        'Not configuring the WORKSPACE for Android builds.'):
-      create_android_ndk_rule(environ_cp)
-      create_android_sdk_rule(environ_cp)
+  # if workspace_has_any_android_rule():
+  #   print('The WORKSPACE file has at least one of ["android_sdk_repository", '
+  #         '"android_ndk_repository"] already set. Will not ask to help '
+  #         'configure the WORKSPACE. Please delete the existing rules to '
+  #         'activate the helper.\n')
+  # else:
+  #   if get_var(
+  #       environ_cp, 'TF_SET_ANDROID_WORKSPACE', 'android workspace',
+  #       False,
+  #       ('Would you like to interactively configure ./WORKSPACE for '
+  #        'Android builds?'),
+  #       'Searching for NDK and SDK installations.',
+  #       'Not configuring the WORKSPACE for Android builds.'):
+  #     create_android_ndk_rule(environ_cp)
+  #     create_android_sdk_rule(environ_cp)
 
 
 if __name__ == '__main__':
